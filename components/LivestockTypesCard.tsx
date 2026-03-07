@@ -23,6 +23,9 @@ export default function LivestockTypesCard({
   totalValue = "91M+",
   data,
 }: Props) {
+  const maxValue = Math.max(...data.map((item) => item.value), 1);
+  const minBarHeight = 40;
+  const maxBarHeight = 88;
   const [animatedValues, setAnimatedValues] = useState<number[]>(
     data.map(() => 0)
   );
@@ -41,19 +44,19 @@ export default function LivestockTypesCard({
       <div className="flex justify-between items-start gap-4 mb-8 flex-nowrap">
         <div className="min-w-fit">
           <h3 className="text-[clamp(18px,2.5vw,32px)] font-semibold text-[#191919] whitespace-nowrap">
-            Livestock Types
+            {title}
           </h3>
           <p className="text-[clamp(12px,1.8vw,18px)] text-[#9A9A9A] whitespace-nowrap">
-            Last updated: Jan 01, 2027
+            Last updated: {lastUpdated}
           </p>
         </div>
 
         <div className="text-right min-w-fit">
           <p className="text-[clamp(10px,1.5vw,14px)] text-[#9A9A9A] whitespace-nowrap">
-            6 Types of Livestock
+            {totalLabel}
           </p>
           <p className="text-[clamp(22px,3vw,40px)] font-semibold text-[#1F4941] leading-none whitespace-nowrap">
-            <AnimatedCounter end={91} suffix="M" />
+            <AnimatedCounter end={parseInt(totalValue, 10) || 91} suffix="M" />
             <span className="text-[#9A9A9A] text-[clamp(14px,2vw,26px)]">
               +
             </span>
@@ -62,16 +65,26 @@ export default function LivestockTypesCard({
       </div>
 
       {/* Chart */}
-      <div className="w-full flex-1 flex bg-[#F8F9F9] p-4 sm:p-6 md:p-8 rounded-[12px]">
-        <div className="flex items-end gap-3 sm:gap-4 w-full">
+      <div className="w-full flex-1 flex bg-[#F8F9F9] p-4 sm:p-6 md:p-8 rounded-[12px] min-h-[220px] md:min-h-[360px] lg:min-h-[420px]">
+        <div className="flex items-end md:items-stretch gap-3 sm:gap-4 w-full">
           {data.map((item, i) => (
-            <div key={i} className="flex flex-col items-center flex-1 min-w-0">
+            <div key={i} className="flex flex-col items-center flex-1 min-w-0 md:h-full">
               {/* Track */}
-              <div className="w-full h-[180px] sm:h-[240px] md:h-[390px] lg:h-[500px] bg-white rounded-[16px] flex items-end overflow-hidden">
+              <div className="w-full h-[180px] sm:h-[190px] md:h-full bg-white rounded-[16px] flex items-end overflow-hidden">
                 {/* Fill */}
                 <div
-                  className="w-full bg-[#1F4941] rounded-t-[12px] sm:rounded-t-[14px] flex items-end justify-center text-white text-xs sm:text-sm font-medium transition-all duration-1000 ease-out"
-                  style={{ height: `${Math.min(100, animatedValues[i] * 1.8)}%` }}
+                  className="w-full bg-[#1F4941] rounded-[8px] sm:rounded-[10px] flex items-end justify-center text-white text-xs sm:text-sm font-medium transition-all duration-1000 ease-out"
+                  style={{
+                    height: `${Math.min(
+                      maxBarHeight,
+                      Math.max(
+                        minBarHeight,
+                        minBarHeight +
+                        (animatedValues[i] / maxValue) *
+                        (maxBarHeight - minBarHeight)
+                      )
+                    )}%`,
+                  }}
                 >
                   <span className="mb-1">
                     {" "}

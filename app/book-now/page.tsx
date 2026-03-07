@@ -99,9 +99,9 @@ export default function BookNowPage() {
   return (
     <div className="min-h-screen bg-[#F4F4F4] flex flex-col">
       {/* navbar */}
-      <Navbar  />
+      <Navbar position="static" />
       {/* CONTENT */}
-      <div className="flex-1 px-4 sm:px-8 xl:px-4 py-12 lg:py-16">
+      <div className="flex-1 px-4 sm:px-8 xl:px-4 py-5 lg:py-5">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4">
           {/* LEFT SIDE */}
           <div className="col-span-1 lg:col-span-8 relative">
@@ -125,11 +125,10 @@ export default function BookNowPage() {
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
                     className={`px-5 py-2 rounded-[8px] text-sm font-medium transition-all duration-300 border-1
-      ${
-        activeTab === tab.id
-          ? "bg-white text-[#1F4941] border-[#1F4941] shadow-md"
-          : "bg-white/20 text-white border-white hover:bg-white/30"
-      }`}
+      ${activeTab === tab.id
+                        ? "bg-white text-[#1F4941] border-[#1F4941] shadow-md"
+                        : "bg-white/20 text-white border-white hover:bg-white/30"
+                      }`}
                   >
                     {tab.label}
                   </button>
@@ -147,11 +146,10 @@ export default function BookNowPage() {
                       fill
                       priority
                       className={`object-contain absolute left-0 bottom-0 origin-bottom-right origin-top-right transition-all duration-500 ease-in-out
-        ${
-          activeTab === tab.id
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-6"
-        }
+        ${activeTab === tab.id
+                          ? "opacity-100 translate-y-0"
+                          : "opacity-0 translate-y-6"
+                        }
       `}
                     />
                   ))}
@@ -241,9 +239,11 @@ export default function BookNowPage() {
       </div>
 
       {/* FOOTER */}
-      <div className="flex justify-between px-20 py-6 text-sm text-gray-400">
-        <p>© 2026 TernaQin Indonesia</p>
-        <p>All Right Reserved</p>
+      <div className="border-t border-[#E3E3E3]">
+        <div className="grid grid-cols-2 items-center gap-3 px-4 sm:px-8 lg:px-20 py-4 sm:py-5 text-[11px] sm:text-sm text-gray-400">
+          <p className="text-left leading-tight">© 2026 TernaQin Indonesia</p>
+          <p className="text-right leading-tight">All Right Reserved</p>
+        </div>
       </div>
     </div>
   );

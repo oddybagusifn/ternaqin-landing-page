@@ -11,9 +11,14 @@ const navItems = [
   { label: "Analytics", href: "#analytics" },
 ];
 
-export default function Navbar() {
+interface NavbarProps {
+  position?: "fixed" | "static";
+}
+
+export default function Navbar({ position = "fixed" }: NavbarProps) {
   const [isOverHero, setIsOverHero] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const isFixed = position === "fixed";
 
   useEffect(() => {
     const hero = document.getElementById("hero");
@@ -49,17 +54,18 @@ export default function Navbar() {
   }, [menuOpen]);
 
   return (
-    <>
+    <div className={isFixed ? "" : "relative z-40"}>
       {/* ================= HEADER ================= */}
-      <header className="fixed top-0 left-0 right-0 z-40 transition-all duration-700 ease-[cubic-bezier(.22,1,.36,1)]">
+      <header
+        className={`${isFixed ? "fixed top-0 left-0 right-0" : "relative"
+          } z-40 transition-all duration-700 ease-[cubic-bezier(.22,1,.36,1)]`}
+      >
         <div
-          className={`w-full transition-all duration-700 ease-[cubic-bezier(.22,1,.36,1)] ${
-            isOverHero ? "rounded-t-[32px]" : ""
-          } ${
-            isOverHero
+          className={`w-full transition-all duration-700 ease-[cubic-bezier(.22,1,.36,1)] ${isOverHero ? "rounded-t-[32px]" : ""
+            } ${isOverHero
               ? "bg-transparent w-full"
               : "bg-[#F3F3F3] backdrop-blur-md mx-auto max-w-[1800px]"
-          }`}
+            }`}
         >
           <nav className="flex items-center justify-between px-4 py-3 w-full min-w-0">
             {/* LOGO */}
@@ -126,10 +132,9 @@ export default function Navbar() {
                   className={`
                     absolute inset-0 flex flex-col justify-center items-center space-y-1.5
                     transition-all duration-300 ease-in-out
-                    ${
-                      menuOpen
-                        ? "opacity-0 scale-100 rotate-90"
-                        : "opacity-100 scale-150 rotate-0"
+                    ${menuOpen
+                      ? "opacity-0 scale-100 rotate-90"
+                      : "opacity-100 scale-150 rotate-0"
                     }
                   `}
                 >
@@ -146,10 +151,9 @@ export default function Navbar() {
                   className={`
                     absolute inset-0 flex items-center justify-center
                     transition-all duration-300 ease-in-out
-                    ${
-                      menuOpen
-                        ? "opacity-100 scale-150 rotate-0"
-                        : "opacity-0 scale-100 -rotate-90"
+                    ${menuOpen
+                      ? "opacity-100 scale-150 rotate-0"
+                      : "opacity-0 scale-100 -rotate-90"
                     }
                   `}
                 >
@@ -169,7 +173,7 @@ export default function Navbar() {
       {/* ================= EXPANDING FULL MENU ================= */}
       <div
         className={`
-    fixed left-0 right-0
+    ${isFixed ? "fixed" : "absolute"} left-0 right-0
     top-[72px]
     z-30
     origin-top
@@ -185,11 +189,10 @@ export default function Navbar() {
               className={`
           flex flex-col text-[26px] font-medium text-black
           transition-all duration-500 ease-[cubic-bezier(.22,1,.36,1)]
-          ${
-            menuOpen
-              ? "opacity-100 translate-y-0 delay-700"
-              : "opacity-0 -translate-y-4"
-          }
+          ${menuOpen
+                  ? "opacity-100 translate-y-0 delay-700"
+                  : "opacity-0 -translate-y-4"
+                }
         `}
             >
               {[
@@ -210,11 +213,10 @@ export default function Navbar() {
                   }}
                   className={`
               transition-all duration-400 ease-[cubic-bezier(.22,1,.36,1)]
-              ${
-                menuOpen
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-4"
-              }
+              ${menuOpen
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-4"
+                    }
             `}
                 >
                   <a
@@ -238,6 +240,6 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Plus, X, MessageCircle } from "lucide-react";
+import { Plus, X } from "lucide-react";
 import Image from "next/image";
 
 interface FAQItem {
@@ -114,14 +114,14 @@ export default function Faqs() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
           {/* Left Side - Image Card */}
           <div
-            className="relative  bg-[#f3f3f3]  rounded-3xl overflow-hidden h-[400px] lg:h-auto lg:sticky lg:top-8 transition-all duration-300"
+            className="relative w-full bg-[#f3f3f3] rounded-3xl overflow-hidden h-[400px] lg:h-auto lg:sticky lg:top-8 transition-all duration-300"
             style={{ height: faqHeight > 0 ? `${faqHeight}px` : undefined }}
           >
             <Image
               src="/img/bgfaqs.svg"
               alt="Customer meeting"
               fill
-              className="object-cover opacity-80 transition-transform duration-300 max-lg:scale-95 rounded-3xl"
+              className="object-cover opacity-80 rounded-3xl"
             />
 
             {/* Text Content */}
@@ -163,7 +163,7 @@ export default function Faqs() {
           </div>
 
           {/* Right Side - FAQ Accordion */}
-          <div ref={faqContainerRef} className="col-span-2 space-y-4">
+          <div ref={faqContainerRef} className="w-full space-y-4 lg:col-span-2">
             {faqs.map((faq, index) => (
               <div
                 key={index}

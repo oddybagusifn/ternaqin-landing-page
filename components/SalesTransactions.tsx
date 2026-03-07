@@ -32,10 +32,10 @@ interface CustomTickProps {
   index?: number;
   visibleTicksCount?: number;
   activeMonth: string;
-  onMonthClick: (month: string) => void;
+  onMonthHover: (month: string) => void;
 }
 
-interface ChartClickState {
+interface ChartHoverState {
   activeLabel?: string | number;
 }
 
@@ -46,7 +46,7 @@ const CustomTick = ({
   index,
   visibleTicksCount,
   activeMonth,
-  onMonthClick,
+  onMonthHover,
 }: CustomTickProps) => {
   if (x === undefined || y === undefined || !payload) return null;
 
@@ -68,8 +68,8 @@ const CustomTick = ({
 
   return (
     <g
-      onClick={() => onMonthClick(payload.value)}
-      style={{ cursor: "pointer", pointerEvents: "all" }}
+      onMouseEnter={() => onMonthHover(payload.value)}
+      style={{ pointerEvents: "all" }}
     >
       <text
         x={adjustedX}
@@ -136,7 +136,7 @@ export default function SalesTransactions() {
         ? "-translate-x-full"
         : "-translate-x-1/2";
 
-  const handleChartClick = (state: ChartClickState | undefined) => {
+  const handleChartHover = (state: ChartHoverState | undefined) => {
     if (!state?.activeLabel) return;
     setActiveMonth(String(state.activeLabel));
   };
@@ -169,16 +169,18 @@ export default function SalesTransactions() {
 
       {/* Chart */}
       <div
-        className="bg-[#F4F6F5] rounded-[20px] 
+        className="bg-[#F4F6F5] rounded-[20px] select-none 
                 min-h-[220px] sm:min-h-[260px] 
                 lg:flex-1"
+        style={{ WebkitTapHighlightColor: "transparent", outline: "none" }}
+        onMouseDown={(event) => event.preventDefault()}
       >
         <div className="relative w-full h-full min-h-[220px] sm:min-h-[260px] lg:min-h-0">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart
               data={animatedData}
               margin={{ top: 0, right: 0, left: 0, bottom: 20 }}
-              onClick={handleChartClick}
+              onMouseMove={handleChartHover}
             >
               <defs>
                 <linearGradient id="colorArea" x1="0" y1="0" x2="0" y2="1">
@@ -196,7 +198,7 @@ export default function SalesTransactions() {
                 tick={
                   <CustomTick
                     activeMonth={activeMonth}
-                    onMonthClick={setActiveMonth}
+                    onMonthHover={setActiveMonth}
                   />
                 }
               />

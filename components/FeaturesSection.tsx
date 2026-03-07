@@ -131,7 +131,7 @@ will-change-transform transition-transform
             <div className="relative z-10 h-full flex flex-col justify-between">
               {/* Top Row — Logo */}
               <div className="flex items-center gap-4">
-                <span className="h-px flex-1 bg-[#D7D7D7]" />
+                <span className="h-px flex-1 bg-[#D7D7D7] opacity-40" />
                 <img
                   src="/img/Ternaqin-logo.svg"
                   alt="TernaQin"
@@ -273,17 +273,10 @@ will-change-transform transition-transform
 
                 <h3
                   className="
-        text-[28px] 
-        sm:text-[36px] 
-        md:text-[44px] 
-        lg:text-[55px] 
-        leading-[1.15] 
-        md:leading-[1.1] 
-        font-medium
+        text-[40px] md:text-[55px] font-medium
       "
                 >
                   Intelligent Livestock
-                  <br className="hidden sm:block" />
                   Management
                 </h3>
               </div>
@@ -727,7 +720,7 @@ will-change-transform transition-transform
 "
               >
                 {/* 85% */}
-                <div className="relative md:absolute md:top-1/2 md:left-1/2 md:-translate-y-[100%] md:translate-x-[-5%] mb-10 md:mb-0">
+                <div className="relative md:absolute md:top-1/2 md:left-1/2 md:-translate-y-[100%] md:translate-x-[-5%] md:mb-0">
                   <p className="text-[44px] sm:text-[58px] md:text-[72px] leading-[0.9] font-semibold tracking-tight text-[#EDEDED]">
                     85
                     <span className="text-[16px] sm:text-[20px] md:text-[24px] align-top ml-1 text-white/60">

@@ -9,9 +9,9 @@ export default function Footer() {
         <footer className="min-h-screen relative overflow-hidden bg-[#F3F3F3]">
             <div className="w-full h-full min-h-screen px-6 pt-12 pb-5 lg:px-12 xl:px-20 flex flex-col justify-between">
                 {/* Contact Information */}
-                <div className="flex flex-wrap justify-between items-start gap-8 py-8 relative z-10">
+                <div className="grid grid-cols-1 items-start gap-y-6 py-8 relative z-10 lg:flex lg:justify-between lg:gap-8">
                     {/* Contact */}
-                    <div className="shrink-0 space-y-2">
+                    <div className="min-w-0 space-y-2 lg:min-w-fit lg:shrink-0">
                         <div className="flex items-center gap-2">
                             <svg width="24" height="24" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M29.3666 17.9173C28.6499 17.9173 28.0833 17.334 28.0833 16.634C28.0833 16.0173 27.4666 14.734 26.4333 13.6173C25.4166 12.534 24.2999 11.9007 23.3666 11.9007C22.6499 11.9007 22.0833 11.3173 22.0833 10.6173C22.0833 9.91732 22.6666 9.33398 23.3666 9.33398C25.0333 9.33398 26.7833 10.234 28.3166 11.8507C29.7499 13.3673 30.6666 15.2507 30.6666 16.6173C30.6666 17.334 30.0833 17.9173 29.3666 17.9173Z" fill="#191919" />
@@ -26,7 +26,7 @@ export default function Footer() {
                     </div>
 
                     {/* Email Address */}
-                    <div className="shrink-0 space-y-2">
+                    <div className="min-w-0 space-y-2 lg:min-w-fit lg:shrink-0">
                         <div className="flex items-center gap-2">
                             <svg width="24" height="24" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M10.0001 21.666C5.40008 21.666 1.66675 25.3827 1.66675 29.9993C1.66675 34.616 5.40008 38.3327 10.0001 38.3327C14.6001 38.3327 18.3334 34.5993 18.3334 29.9993C18.3334 25.3993 14.6167 21.666 10.0001 21.666ZM6.60008 26.5993H10.0001C10.6334 26.5993 11.1334 27.116 11.1334 27.7327C11.1334 28.3493 10.6334 28.866 10.0001 28.866H6.60008C5.96675 28.866 5.46675 28.3493 5.46675 27.7327C5.46675 27.116 5.96675 26.5993 6.60008 26.5993ZM13.4001 33.3994H6.60008C5.96675 33.3994 5.46675 32.8827 5.46675 32.266C5.46675 31.6494 5.98341 31.1327 6.60008 31.1327H13.4167C14.0501 31.1327 14.5501 31.6494 14.5501 32.266C14.5501 32.8827 14.0334 33.3994 13.4001 33.3994Z" fill="#191919" />
@@ -39,7 +39,7 @@ export default function Footer() {
                     </div>
 
                     {/* Company Location - New Zealand */}
-                    <div className="shrink-0 space-y-2">
+                    <div className="min-w-0 space-y-2 lg:min-w-fit lg:shrink-0">
                         <div className="flex items-center gap-2">
                             <svg width="24" height="24" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M8.33325 13.334C5.56659 13.334 3.33325 15.5673 3.33325 18.334V31.6673C3.33325 34.434 5.56659 36.6673 8.33325 36.6673H10.8333C12.6666 36.6673 14.1666 35.1673 14.1666 33.334V16.6673C14.1666 14.834 12.6666 13.334 10.8333 13.334H8.33325ZM9.99992 28.334C9.99992 29.0173 9.43325 29.584 8.74992 29.584C8.06659 29.584 7.49992 29.0173 7.49992 28.334V21.6673C7.49992 20.984 8.06659 20.4173 8.74992 20.4173C9.43325 20.4173 9.99992 20.984 9.99992 21.6673V28.334Z" fill="#191919" />
@@ -52,7 +52,7 @@ export default function Footer() {
                     </div>
 
                     {/* Company Location - Indonesia */}
-                    <div className="shrink-0 space-y-2">
+                    <div className="min-w-0 space-y-2 lg:min-w-fit lg:shrink-0">
                         <div className="flex items-center gap-2">
                             <svg width="24" height="24" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M8.33325 13.334C5.56659 13.334 3.33325 15.5673 3.33325 18.334V31.6673C3.33325 34.434 5.56659 36.6673 8.33325 36.6673H10.8333C12.6666 36.6673 14.1666 35.1673 14.1666 33.334V16.6673C14.1666 14.834 12.6666 13.334 10.8333 13.334H8.33325ZM9.99992 28.334C9.99992 29.0173 9.43325 29.584 8.74992 29.584C8.06659 29.584 7.49992 29.0173 7.49992 28.334V21.6673C7.49992 20.984 8.06659 20.4173 8.74992 20.4173C9.43325 20.4173 9.99992 20.984 9.99992 21.6673V28.334Z" fill="#191919" />
@@ -69,7 +69,7 @@ export default function Footer() {
                 <div>
                     <div className="flex items-center justify-center pointer-events-none">
                         <h2
-                            className="text-[90px] md:text-[200px] lg:text-[260px] xl:text-[320px] font-bold text-transparent bg-clip-text bg-linear-to-b from-[#B8C5C5] to-transparent text-center leading-none"
+                            className="text-[100px] md:text-[200px] lg:text-[260px] xl:text-[320px] font-bold text-transparent bg-clip-text bg-linear-to-b from-[#B8C5C5] to-transparent text-center leading-none"
                             style={{
                                 WebkitBackgroundClip: 'text',
                                 WebkitTextFillColor: 'transparent'

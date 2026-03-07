@@ -333,7 +333,7 @@ export default function Pricing() {
               </div>
             </div>
           </div>
-          <div className="bg-gray-900 rounded-2xl p-8 text-white flex flex-col justify-between h-full max-lg:min-h-[780px] relative overflow-hidden">
+          <div className="bg-[#191919] rounded-2xl p-8 text-white flex flex-col justify-between h-full max-lg:min-h-[780px] relative overflow-hidden">
             {/* Circle Background */}
             <div className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 w-100 h-100 rounded-full bg-[#A5A5A5] opacity-8"></div>
             <div className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 w-150 h-150 rounded-full bg-[#A5A5A5] opacity-8"></div>
@@ -342,7 +342,7 @@ export default function Pricing() {
             <div className="relative z-10">
               <h2 className="text-3xl font-bold mb-6">Enterprise Plan</h2>
               <div className="flex items-baseline mb-3">
-                <span className="text-7xl font-medium">Let&apos;s Talk</span>
+                <span className="text-6xl md:text-7xl font-medium">Let&apos;s Talk</span>
               </div>
               <p className="text-[#A5A5A5]">
                 Enterprise features available for unlimited users.

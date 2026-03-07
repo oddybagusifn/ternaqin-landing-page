@@ -122,12 +122,12 @@ export default function AnalyticsSection() {
         <div className="flex">
           <LivestockTypesCard
             data={[
-              { name: "Turkey", value: 25 },
-              { name: "Duck", value: 40 },
-              { name: "Cattle", value: 35 },
-              { name: "Sheep", value: 62 },
-              { name: "Fish", value: 55 },
-              { name: "Chicken", value: 65 },
+              { name: "Turkey", value: 11 },
+              { name: "Duck", value: 13 },
+              { name: "Cattle", value: 18 },
+              { name: "Sheep", value: 18 },
+              { name: "Fish", value: 15 },
+              { name: "Chicken", value: 25 },
             ]}
           />
         </div>
